@@ -1,0 +1,4 @@
+SE002,Data_Analysis,8s,Priority 1,Priority
+SE001,AI_Model,12s,Priority 2,Priority
+SE004,Database QUERY,0s,Priority 3,Round Robin
+SE003,Simulation Test,0s,Priority 5,Round Robin

@@ -8,3 +8,8 @@
 2026-08-04 20:02:02 - Checked disk usage of /home/student/AOS_Assessment_1/Task1_IoT/sensor_logs
 2026-08-04 20:02:03 - Archived sensor_test.log as sensor_test_20260804_200202.tar.gz
 2026-08-04 20:04:47 - User exited the system (Bye)
+2026-08-06 09:34:41 - Checked CPU and memory usage
+2026-08-06 09:35:01 - Viewed top 10 memory consuming processes
+2026-08-06 09:36:15 - Invalid PID entered: 
+2026-08-06 09:36:43 - Log directory not found: 
+2026-08-06 09:37:18 - User exited the system (Bye)
