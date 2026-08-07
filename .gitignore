@@ -8,6 +8,7 @@ Task1_IoT/sensor_logs/ArchiveLogs/
 Task1_IoT/system_monitor_log.txt
 
 # Task 2 generated files
+Task2_JobScheduler/job_queue.txt
 Task2_JobScheduler/scheduler_log.txt
 Task2_JobScheduler/completed_jobs.txt
 
