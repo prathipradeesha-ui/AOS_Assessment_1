@@ -1,3 +1,17 @@
 __pycache__/
 *.pyc
 
+
+# Task 1 generated files
+Task1_IoT/sensor_logs/sensor_test.log
+Task1_IoT/sensor_logs/ArchiveLogs/
+Task1_IoT/system_monitor_log.txt
+
+# Task 2 generated files
+Task2_JobScheduler/scheduler_log.txt
+Task2_JobScheduler/completed_jobs.txt
+
+# Task 3 generated files
+Task3_Submission/submission_log.txt
+Task3_Submission/submissions/
+Task3_Submission/upload_files/
