@@ -42,9 +42,7 @@ chmod +x smart_campus.sh
 
 ## Description
 
-A Bash/Python-based job scheduling system that manages computational job requests using operating system scheduling concepts.
-
-The system demonstrates queue management, scheduling algorithms, and job execution tracking.
+A Python based job scheduling system that manages computational job requests using operating system scheduling concepts.
 
 ## Features
 
@@ -60,8 +58,8 @@ The system demonstrates queue management, scheduling algorithms, and job executi
 
 The system implements:
 
-- Round Robin Scheduling
-- Priority Scheduling
+- Round Robin Scheduling with a 5-second time quantum
+- Priority Scheduling where lower priority numbers execute first
 
 ## Data Storage
 
@@ -75,7 +73,7 @@ The system maintains:
 
 ```bash
 cd Task2_JobScheduler
-python3 scheduler.py
+python3 job_scheduler.py
 ```
 
 ---
@@ -96,7 +94,7 @@ The system provides security controls to prevent invalid submissions and detect 
 - Duplicate submission detection
 - Login attempt simulation
 - Failed login monitoring
-- Account locking after repeated failures
+- Account locking after 3 failed login attempts
 - Suspicious activity detection
 - Audit logging
 
