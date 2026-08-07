@@ -182,7 +182,7 @@ def round_robin():
                     f"for {run_time} seconds"
                 )
 
-                time.sleep(1)
+                time.sleep(run_time)
 
                 job["execution_time"] -= run_time
 

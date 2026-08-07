@@ -1,8 +1,0 @@
-2026-08-06 11:06:40 | Job Submitted | Student ID: SE001 | Job: AI_Model | Priority: 2
-2026-08-06 11:08:51 | Job Submitted | Student ID: SE002 | Job: Data_Analysis | Priority: 1
-2026-08-06 11:10:04 | Job Executed | Student ID: SE002 | Job: Data_Analysis | Scheduling: Priority | Completed
-2026-08-06 11:10:05 | Job Executed | Student ID: SE001 | Job: AI_Model | Scheduling: Priority | Completed
-2026-08-06 11:14:29 | Job Submitted | Student ID: SE003 | Job: Simulation Test | Priority: 5
-2026-08-06 11:15:25 | Job Submitted | Student ID: SE004 | Job: Database QUERY | Priority: 3
-2026-08-06 11:16:34 | Job Executed | Student ID: SE004 | Job: Database QUERY | Scheduling: Round Robin | Completed
-2026-08-06 11:16:35 | Job Executed | Student ID: SE003 | Job: Simulation Test | Scheduling: Round Robin | Completed
