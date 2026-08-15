@@ -79,12 +79,17 @@ def view_pending_jobs():
     print("-" * 55)
 
     for job in jobs:
+        if not job.strip():
+            continue
+
         student_id, job_name, execution_time, priority = job.strip().split(",")
 
         print(
             f"{student_id} | {job_name} | "
             f"{execution_time}s | Priority {priority}"
         )
+
+
 
 
 
