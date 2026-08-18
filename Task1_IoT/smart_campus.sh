@@ -21,6 +21,10 @@ show_system_usage() {
     echo "--- CPU Load ---"
     uptime
 
+    echo
+    echo "--- CPU Usage % ---"
+    top -bn1 | grep "Cpu(s)"
+
     log_action "Checked CPU and memory usage"
 
     echo
@@ -181,6 +185,7 @@ manage_logs() {
 
     # Check ArchiveLogs size
     archive_size=$(du -sb "$archive_dir" 2>/dev/null | cut -f1)
+    archive_size=${archive_size:-0}
     one_gb=$((1024 * 1024 * 1024))
 
     echo
