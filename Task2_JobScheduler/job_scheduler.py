@@ -148,7 +148,7 @@ def priority_scheduling():
             f"(Priority {job['priority']})"
         )
 
-        time.sleep(1)
+        time.sleep(job['execution_time'])
 
         save_completed(job, "Priority")
 
