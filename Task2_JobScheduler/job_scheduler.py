@@ -102,13 +102,13 @@ def load_jobs():
             for line in file:
                 if line.strip():
                     student_id, job_name, execution_time, priority = line.strip().split(",")
-
                     jobs.append({
-                        "student_id": student_id,
-                        "job_name": job_name,
-                        "execution_time": int(execution_time),
-                        "priority": int(priority)
-                    })
+                     "student_id": student_id,
+                     "job_name": job_name,
+                     "execution_time": int(execution_time),
+                     "original_execution_time": int(execution_time),
+                     "priority": int(priority)
+})
 
     return jobs
 
@@ -117,7 +117,7 @@ def save_completed(job, scheduling_type):
     with open(COMPLETED_FILE, "a") as file:
         file.write(
             f"{job['student_id']},{job['job_name']},"
-            f"{job['execution_time']}s,"
+            f"{job['original_execution_time']}s,"
             f"Priority {job['priority']},"
             f"{scheduling_type}\n"
         )
