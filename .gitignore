@@ -16,3 +16,5 @@ Task2_JobScheduler/completed_jobs.txt
 Task3_Submission/submission_log.txt
 Task3_Submission/submissions/
 Task3_Submission/upload_files/
+Task3_Submission/failed_attempts.txt
+Task3_Submission/submission_system_backup.py
