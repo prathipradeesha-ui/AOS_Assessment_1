@@ -9,8 +9,38 @@ UPLOAD_FOLDER = "upload_files"
 LOG_FILE = "submission_log.txt"
 
 
-failed_attempts = {}
+FAILED_ATTEMPTS_FILE = "failed_attempts.txt"
 
+
+def load_failed_attempts():
+    attempts = {}
+
+    if os.path.exists(FAILED_ATTEMPTS_FILE):
+        with open(FAILED_ATTEMPTS_FILE, "r") as f:
+            for line in f:
+                if line.strip():
+                    parts = line.strip().split(",")
+
+                    if len(parts) == 3:
+                        student_id, count, last_attempt = parts
+
+                        attempts[student_id] = {
+                            "count": int(count),
+                            "last_attempt": float(last_attempt)
+                        }
+
+    return attempts
+
+
+def save_failed_attempts():
+    with open(FAILED_ATTEMPTS_FILE, "w") as f:
+        for student_id, data in failed_attempts.items():
+            f.write(
+                f"{student_id},{data['count']},{data['last_attempt']}\n"
+            )
+
+
+failed_attempts = load_failed_attempts()
 
 
 def log_event(message):
@@ -193,30 +223,22 @@ def login_attempt():
 
     if password == correct_password:
 
-
         print("Login successful.")
 
-
         failed_attempts[student_id] = {
-
             "count": 0,
-
             "last_attempt": current_time
-
         }
 
+        save_failed_attempts()
 
         log_event(
             f"Login Successful | Student ID: {student_id}"
         )
 
-
-
     else:
 
-
         print("Invalid login details.")
-
 
 
         if student_id not in failed_attempts:
@@ -225,10 +247,10 @@ def login_attempt():
             failed_attempts[student_id] = {
 
                 "count": 1,
-
                 "last_attempt": current_time
 
             }
+            save_failed_attempts()
 
 
 
@@ -238,27 +260,21 @@ def login_attempt():
             time_difference = current_time - failed_attempts[student_id]["last_attempt"]
 
 
-
             if time_difference < 60:
-
 
                 log_event(
                     f"Suspicious Login Attempt | Student ID: {student_id}"
                 )
 
-
-
             failed_attempts[student_id]["count"] += 1
-
             failed_attempts[student_id]["last_attempt"] = current_time
 
-
+            save_failed_attempts()
 
         log_event(
             f"Login Failed | Student ID: {student_id} | "
             f"Attempt: {failed_attempts[student_id]['count']}"
         )
-
 
 
 
