@@ -99,32 +99,30 @@ terminate_process() {
 
     read -p "Do you want to terminate it? (Y/N): " answer
 
- if [[ "$answer" == "Y" || "$answer" == "y" ]]; then
-    kill "$pid" 2>/dev/null
+    if [[ "$answer" == "Y" || "$answer" == "y" ]]; then
+        kill "$pid" 2>/dev/null
 
-    if [ $? -eq 0 ]; then
-        sleep 1
+        if [ $? -eq 0 ]; then
+            sleep 1
 
-        if ps -p "$pid" > /dev/null 2>&1; then
-            echo "Termination signal sent, but process is still running."
-            log_action "Process $process_name PID $pid is still running after termination attempt"
+            if ps -p "$pid" > /dev/null 2>&1; then
+                echo "Termination signal sent, but process is still running."
+                log_action "Process $process_name PID $pid is still running after termination attempt"
+            else
+                echo "Process terminated successfully."
+                log_action "Terminated process $process_name PID $pid"
+            fi
         else
-            echo "Process terminated successfully."
-            log_action "Terminated process $process_name PID $pid"
+            echo "Unable to terminate the process."
+            log_action "Failed to terminate $process_name PID $pid"
         fi
     else
-        echo "Unable to terminate the process."
-        log_action "Failed to terminate $process_name PID $pid"
+        echo "Termination cancelled."
+        log_action "Termination cancelled for PID $pid"
     fi
-else
-    echo "Termination cancelled."
-    log_action "Termination cancelled for PID $pid"
-fi
 
-read -p "Press Enter to go back..."
-
+    read -p "Press Enter to go back..."
 }
-
 
 # Manage sensor log files
 manage_logs() {
