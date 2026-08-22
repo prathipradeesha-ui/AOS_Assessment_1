@@ -21,29 +21,47 @@ def display_title():
     print(" UNIVERSITY RESEARCH CLUSTER SCHEDULER")
     print("======================================")
 
+
 def submit_job():
     print("\n--- Submit New Job ---")
 
-    student_id = input("Enter Student ID: ")
-    job_name = input("Enter Job Name: ")
-    
+    student_id = input("Enter Student ID: ").strip()
+
+    if not student_id:
+        print("Student ID cannot be empty.")
+        return
+
+    job_name = input("Enter Job Name: ").strip()
+
+    if not job_name:
+        print("Job name cannot be empty.")
+        return
+
     while True:
         try:
-            execution_time = int(input("Enter Estimated Execution Time (seconds): "))
+            execution_time = int(
+                input("Enter Estimated Execution Time (seconds): ")
+            )
+
             if execution_time > 0:
                 break
             else:
                 print("Execution time must be positive.")
+
         except ValueError:
             print("Enter a valid number.")
 
     while True:
         try:
-            priority = int(input("Enter Priority (1-10, 1 highest): "))
+            priority = int(
+                input("Enter Priority (1-10, 1 highest): ")
+            )
+
             if 1 <= priority <= 10:
                 break
             else:
                 print("Priority must be between 1 and 10.")
+
         except ValueError:
             print("Enter a valid number.")
 
